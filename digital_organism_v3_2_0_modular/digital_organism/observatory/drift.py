@@ -1,0 +1,1 @@
+from digital_organism.observatory.reports import conclusion_from

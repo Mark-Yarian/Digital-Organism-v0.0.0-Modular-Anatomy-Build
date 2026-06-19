@@ -1,0 +1,2 @@
+from digital_organism.observatory.runtime import ObservatoryRuntime
+ColonyRuntime = ObservatoryRuntime
