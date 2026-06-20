@@ -1,51 +1,151 @@
-# Digital Organism v3.2.0 — Modular Anatomy Build
+# Digital Organism Build Index
 
-This is the modular split of the Digital Organism program.
+Project: Digital Organism  
+Organism: ContinuityNode  
+Build: 0.4.0  
+Mode: OBSERVE  
+Cartography Mode: DRY_RUN_ONLY  
 
-## Quick run
+---
 
-```bash
-python organism.py --version
-python organism.py init --root ./habitat --name "Seed Cell" --force
-python organism.py run --root ./habitat --ticks 5
-python organism.py status --root ./habitat
-```
+## File Index
 
-## Read-only substrate mapping
+| File | Purpose | Output |
+|---|---|---|
+| `organism.py` | Main launcher | Console reports |
+| `organs/__init__.py` | Organ package index | None |
+| `organs/core_identity.py` | Persistent identity + runtime identity | `data/identity.json` |
+| `organs/sensorium.py` | Runtime/environment snapshot + passive topology seed | `data/sensorium_snapshot.json` |
+| `organs/network_cartography.py` | Dry-run active-discovery planning | `data/network_cartography_policy.json`, `data/network_cartography_report.json`, `data/network_cartography_audit_log.jsonl` |
+| `README.md` | Base documentation | None |
+| `BUILD_INDEX.md` | This index file | None |
 
-```bash
-python organism.py substrate-map --root ./habitat
-```
+---
 
-Trace commands are gated:
+## Organ Responsibility Index
 
-```bash
-python organism.py substrate-map --root ./habitat --allow-trace --trace-target example.com
-```
+### Core Identity Organ
 
-## Experiment
-
-```bash
-python organism.py experiment-init --root ./ecosystem --scenario continuity_under_divergence --force
-python organism.py experiment-run --root ./ecosystem --scenario continuity_under_divergence --rounds 25
-python organism.py experiment-report --root ./ecosystem --scenario continuity_under_divergence
-```
-
-## Layout
+Question answered:
 
 ```text
-organism.py                      launcher
-digital_organism/build.py        build metadata
-digital_organism/core/           genome, state, runtime, utilities
-digital_organism/memory/         memory store
-digital_organism/organs/         organism organs
-digital_organism/substrate/      read-only machine mapping
-digital_organism/colony/         local signal routing
-digital_organism/observatory/    metrics/reports/lineage/signal graph
-digital_organism/experiments/    experiment definitions
-digital_organism/cli/            command-line interface
+Who am I?
 ```
 
-## Safety boundary
+Key concepts:
 
-The substrate mapper is read-only by default. It does not change routes, firewall rules, services, package managers, files, users, credentials, or OS settings.
+```text
+persistent identity
+runtime identity
+lineage ID
+birth timestamp
+locked fields
+current build
+first build
+```
+
+Locked fields:
+
+```text
+organism_name
+birth_timestamp_utc
+lineage_id
+first_build
+```
+
+---
+
+### Sensorium Organ
+
+Question answered:
+
+```text
+Where am I running?
+What can I safely observe?
+```
+
+Key concepts:
+
+```text
+read-only observation
+local host context
+Python runtime context
+safe environment summary
+passive network interfaces
+passive ARP/neighbor cache
+passive connection records
+topology seed matrix
+```
+
+Active scan status:
+
+```text
+false
+```
+
+---
+
+### Network Cartography Organ
+
+Question answered:
+
+```text
+What would I be allowed to map if active discovery were later approved?
+```
+
+Key concepts:
+
+```text
+dry-run planning
+approved scopes
+private ranges only
+policy validation
+audit logging
+future TCP connect probing
+```
+
+Active probe status:
+
+```text
+not implemented
+not permitted
+active_probes_sent = 0
+```
+
+---
+
+## Build History
+
+### Build 0.1.0
+
+Added:
+
+```text
+Core Identity Organ
+```
+
+### Build 0.2.0
+
+Added:
+
+```text
+Sensorium Organ
+```
+
+### Build 0.3.0
+
+Expanded:
+
+```text
+Sensorium passive network awareness
+topology seed matrix
+```
+
+### Build 0.4.0
+
+Added:
+
+```text
+Network Cartography Organ
+dry-run policy/report/audit system
+```
